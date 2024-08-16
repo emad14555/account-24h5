@@ -21,5 +21,12 @@ client.on('ready', () => {
     }).catch((error) => { return; });
     }, 1000)
 }); 
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
 //https://ra3dstudio.com CopyRight Codes
 client.login(process.env.token);
