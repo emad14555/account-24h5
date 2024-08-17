@@ -1,5 +1,12 @@
 const { Client } = require('discord.js-selfbot-v13');
 const client = new Client(); 
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => res.send('Bot is running'));
+
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
 client.on('ready', async () => {
   console.log(`${client.user.username} is ready!`);
