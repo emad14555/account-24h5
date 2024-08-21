@@ -1,30 +1,16 @@
 const { Client } = require('discord.js-selfbot-v13');
 const client = new Client(); 
-//environment
-require('dotenv').config()
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4000;
 
-function formatTime() { 
-  const date = new Date();
-  const options = {
-    timeZone: 'America/New_York', 
-    hour12: true,
-    hour: 'numeric',
-    minute: 'numeric'
-  };
-  return new Intl.DateTimeFormat('en-US', options).format(date);
-}
-const express = require("express")
-const app = express();
-var listener = app.listen(process.env.PORT || 2000, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
-app.listen(() => console.log("I'm Ready To Work..! 24H"));
 app.get('/', (req, res) => {
-  res.send(`
-  <body>
-  <center><h1>Bot 24H ON!</h1></center
-  </body>`)
-});
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 client.on('ready', async () => {
   console.log(`${client.user.username} is ready!`);
 })
